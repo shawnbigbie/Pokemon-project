@@ -1,4 +1,4 @@
-[
+export const pokemon = [
     {
         "base": {
             "Attack": 49, 
@@ -2057,13 +2057,5 @@
         "type": [
             "\u7535"
         ]
-    }, 
-    {
-        "base": {
-            "Attack": 90, 
-            "Defense": 55, 
-            "HP": 60, 
-            "Sp.Atk": 90, 
-            "Sp.Def": 80, 
-            "Speed": 110
-        }, 
+    }
+]
