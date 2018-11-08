@@ -4,11 +4,15 @@ const pokeContainer = document.querySelector('#container')
 
 pokemon.forEach(poke => {
     let card = document.createElement('div')
-
+    card.className = "card"
+    card.onclick = "flip()"
     let fig = document.createElement('figure')
+    fig.className = "front"
     let img = document.createElement('img')
     let cap = document.createElement('figcaption')
     let backDiv = document.createElement('div')
+    let backfig = document.createElement('figure')
+    backfig.className = "back"
 
     backDiv.textContent = poke.jname
 
@@ -17,10 +21,11 @@ pokemon.forEach(poke => {
     fig.appendChild(img)
     fig.appendChild(cap)
     card.appendChild(fig)
-    card.appendChild(backDiv)
+    card.appendChild(backfig)
+    backfig.appendChild(backDiv)
     pokeContainer.appendChild(card)
 
-    card.addEventListener( 'click', function() {
-        card.classList.toggle('is-flipped');
-      });
+    function flip() {
+        $('.card').toggleClass('flipped');
+    }
 })
