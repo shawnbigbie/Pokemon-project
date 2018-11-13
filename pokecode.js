@@ -24,6 +24,15 @@ pokemon.forEach(poke => {
     let basespeedDef = document.createElement('li')
     let baseSpeed = document.createElement('li')
 
+    let newCard ={
+        //new poke data or information
+    }
+
+    let createCard = document.querySelector('#createCard')
+    createCard.addEventListener('click', () =>{
+        return cardCreator(newCard)
+    })
+
     
     baseAtk.textContent = `Base Attack is (${poke.base["Attack"]})`
     baseDef.textContent = `Base Defense is (${poke.base["Defense"]})`
