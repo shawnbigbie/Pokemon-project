@@ -49,6 +49,7 @@ pokemon.forEach(poke => {
     card.appendChild(backcard)
     pokeContainer.appendChild(card)
 
+
     card.addEventListener( 'click', function() {
         card.classList.toggle('flipped');
       });

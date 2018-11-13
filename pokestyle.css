@@ -1,5 +1,6 @@
 #container {
-    width: 100%;
+    width: 970px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid #ccc;
@@ -92,7 +93,6 @@ li{
     width: 300px;
     opacity: 0.4;
     position: relative;
-    z-index: 1;
 }
 
 .card.flipped {
