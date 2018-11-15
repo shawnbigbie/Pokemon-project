@@ -2,7 +2,7 @@ import { pokemon } from './pokemon.js'
 
 const pokeContainer = document.querySelector('#container')
 
-pokemon.forEach(poke => {
+const cardCreator = (poke) => {
     let card = document.createElement('div')
     card.className = "card"
     let fig = document.createElement('div')
@@ -24,16 +24,10 @@ pokemon.forEach(poke => {
     let basespeedDef = document.createElement('li')
     let baseSpeed = document.createElement('li')
 
-    let newCard ={
-        //new poke data or information
-    }
+    card.addEventListener( 'click', function() {
+        card.classList.toggle('flipped');
+      });
 
-    let createCard = document.querySelector('#createCard')
-    createCard.addEventListener('click', () =>{
-        return cardCreator(newCard)
-    })
-
-    
     baseAtk.textContent = `Base Attack is (${poke.base["Attack"]})`
     baseDef.textContent = `Base Defense is (${poke.base["Defense"]})`
     baseHel.textContent = `Base Health is (${poke.base["HP"]})`
@@ -43,7 +37,11 @@ pokemon.forEach(poke => {
     cap.textContent = poke.ename
     img.src = `img/${poke.id}${poke.ename}.png`
     backimg.src = `img/back.png`
+    if(poke.id > '025'){
+        img.src = `img/random.png`
+    }
     
+
     fig.appendChild(img)
     fig.appendChild(cap)
     backcard.appendChild(backimg)
@@ -57,10 +55,25 @@ pokemon.forEach(poke => {
     card.appendChild(fig)
     card.appendChild(backcard)
     pokeContainer.appendChild(card)
-
-
-    card.addEventListener( 'click', function() {
-        card.classList.toggle('flipped');
-      });
     
+};
+
+pokemon.forEach(element => cardCreator(element))
+
+let newCard = {
+    "ename": "???",
+    "id": "???",
+    "base": {
+        "Attack": "???", 
+        "Defense": "???", 
+        "HP": "???", 
+        "Sp.Atk": "???", 
+        "Sp.Def": "???", 
+        "Speed": "???"
+    },
+}
+
+let createCard = document.querySelector('#createCard')
+createCard.addEventListener('click', () => {
+    return cardCreator(newCard)
 })
